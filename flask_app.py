@@ -6,11 +6,11 @@ import pickle
 app = Flask(__name__)
 
 # facebook_page_access_token
-PAT = 'EAARRZBLw66dEBAIRYTwK47xPmUuMNjUQie8vnUlQSsoqs88hr5MXaujd1WvbQ8azuN90MM7v1xL6l3HkJMhLxcu7uLj65gSdUtz2blbOnfTHij7ujf62pTG0m5DptSGrIAzRiimb9JzSgzK38CXl8bbYLvWYDcIbyOEBrDxZBHoZC4jHDsX'
+PAT = 'YOUR TOKEN'
 VERIFY_TOKEN = 'hey'
 
 # api_access_key
-CLIENT_ACCESS_TOKEN = 'd700c440f36647f4b716cf44516b3dd4'
+CLIENT_ACCESS_TOKEN = 'YOUR KEY'
 
 ai = apiai.ApiAI(CLIENT_ACCESS_TOKEN)
 
