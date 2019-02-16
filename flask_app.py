@@ -76,21 +76,25 @@ def parse_user_message(user_text):
     request.query = user_text
 
     response = json.loads(request.getresponse().read().decode('utf-8'))
-    input_movie = response['result']['parameters']['movie']
-    intent = response['result']['metadata']['intentName']
+    
+    reponseStatus = response['status']['code']
+    if responseStatus == 200):
+        intent = response['result']['metadata']['intentName']
+    
+        try:
+            if intent == "movie-info":
+                input_movie = response['result']['parameters']['movie']
+                reply = get_movie_detail(input_movie)
+                return reply
 
-    try:
-        if intent == "movie-info":
-            reply = get_movie_detail(input_movie)
+            elif intent == "movie-recommend":
+                input_movie = response['result']['parameters']['movie']
+                input_year = response['result']['parameters']['number']
+                reply = movie_rec[(input_movie, input_year)]
+                return reply
+        except:
+            reply = "I don't understand your message."
             return reply
-
-        elif intent == "movie-recommend":
-            input_year = response['result']['parameters']['number']
-            reply = movie_rec[(input_movie, input_year)]
-            return reply
-    except:
-        reply = "I don't understand your message."
-        return reply
 
 
 
